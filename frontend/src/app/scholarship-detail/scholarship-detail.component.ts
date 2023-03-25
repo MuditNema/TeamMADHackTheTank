@@ -9,11 +9,9 @@ import { ActivatedRoute } from '@angular/router';
 export class ScholarshipDetailComponent {
 
   id: string = '';
-  curr: string = 'view';
-
+  
   constructor(private routeSnap: ActivatedRoute) {
     this.id = routeSnap.snapshot.paramMap.get('id');
   }
 
-  setCurr(curr: string) { this.curr = curr; }
 }

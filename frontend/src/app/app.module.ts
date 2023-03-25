@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HeaderComponent } from './header/header.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
 import { ScholarshipDetailComponent } from './scholarship-detail/scholarship-detail.component';
 import { EventDirective } from './directives/event.directive';
@@ -27,7 +27,7 @@ import { EventDirective } from './directives/event.directive';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
