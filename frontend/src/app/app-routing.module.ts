@@ -23,14 +23,15 @@ const routes: Routes = [
   { path: 'scholarship/:id', component: ScholarshipDetailComponent },
   { path: 'user-list', component: UserListComponent },
   { path: 'dashboard', component: UserJourneyGraphComponent },
-  {path:'tnc',component:TncComponent},
-  {path:'peerReview',component:ReviewComponent},
-  { path:'downloadRulebook',component:DownloadrulebookComponent },
-  {path:'docUpload',component:DocUploadComponent},
-  {path:'email',component:EmailComponent},
-  {path:'visitSponser',component:VisitedSponserComponent},
-  {path:'enquiry',component:EnquiryComponent},
-  {path:'applied',component:AppliedComponent}
+  {path:'scholarship/:id/tnc',component:TncComponent},
+  {path:'scholarship/:id/peerReview',component:ReviewComponent},
+  {path:'scholarship/:id/downloadRulebook',component:DownloadrulebookComponent },
+  {path:'scholarship/:id/docUpload',component:DocUploadComponent},
+  {path:'scholarship/:id/email',component:EmailComponent},
+  {path:'scholarship/:id/visitSponsor',component:VisitedSponserComponent},
+  {path:'scholarship/:id/enquiry',component:EnquiryComponent},
+  {path:'scholarship/:id/applied',component:AppliedComponent}
+  
 ];
 
 @NgModule({

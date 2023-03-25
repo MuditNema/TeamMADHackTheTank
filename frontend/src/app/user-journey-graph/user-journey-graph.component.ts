@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
 export class UserJourneyGraphComponent {
 
   toggleUserList: boolean = false;
-  userList: User[];
+  userList: any[];
 
   constructor(private http: HttpClient) { }
 
