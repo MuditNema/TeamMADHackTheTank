@@ -2,6 +2,9 @@ const User = require('../models/User')
 const {userValidateSchema} = require('./helpers/validationSchema') 
 const {signAccessToken} =  require('./helpers/JWT_Authentication')
 const bcrypt = require('bcrypt')
+const {sendMail} = require('./helpers/emailFunction')
+const { sendWhatsapp } = require('./helpers/whatsappFunction')
+const axios = require('axios')
 // const sendMail = require('./helpers/sendMail')
 module.exports = {
     login : async (req,res) => {
@@ -96,6 +99,54 @@ module.exports = {
         } catch (error) {
             return res.status(500).json({
                 message : error
+            })
+        }
+    },
+    notifyEmail: async (req,res) => {
+        try {
+            const user_id = req.body.uid;
+            const data = await User.findById(user_id);
+            const message = `You are stuck at the node ${req.body.node}. Kindly try to continue your procedure to get started with the scholarship`
+            const emailInputs = {
+                email:data.email,
+                fname:data.fname,
+                lname:data.lname,
+                message
+            }
+            var dataInput = {
+                service_id: 'service_na2qwry',
+                template_id: 'template_kdrqt39',
+                user_id: 'QF4UVhq5IcR0nAXXx',
+                template_params: emailInputs
+            };
+
+            console.log(emailInputs)
+
+            const result = await axios.post('https://api.emailjs.com/api/v1.0/email/send',{
+                headers : {
+                    'Content-Type': 'application/json'
+                }
+            },JSON.stringify(dataInput))
+            console.log(result)
+            // await emailjs.send("service_na2qwry","template_kdrqt39",emailInputs,"QF4UVhq5IcR0nAXXx")
+            return res.status(200).json({
+                message:"Email sent successfully"
+            })
+        } catch (error) {
+            res.status(500).json({
+                message : "Server error " +  error
+            })
+        }
+    },
+    notifyWhatsapp: async (req,res) => {
+        try {
+            sendWhatsapp()
+            res.status(200).json({
+                message:"Sent successfully"
+            })
+        } catch (error) {
+            res.status(500).json({
+                message : "Server error"
             })
         }
     }
