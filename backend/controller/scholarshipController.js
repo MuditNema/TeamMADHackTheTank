@@ -89,24 +89,27 @@ module.exports = {
                 }
                 //redirect to the url
             }
-            // else {
-            //     if(!alreadyExists(uid,myScholarShip,convert(current_node))) {
-            //         //do add and update
-            //         const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
-            //             return e != uid
-            //         })
-            //         myScholarShip.graph[convert(current_node)] = arr
-            //         await pushToArray(myScholarShip,next_node,uid,scholarship_id)
-            //     }
-            //     else {
-            //         const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
-            //             return e != uid
-            //         })
-            //     }
-            //     //redirect to the url
-            // }
             return res.status(200).json({
                 message : "Event updated successfully"
+            })
+
+        } catch (error) {
+            return res.status(500).json({
+                message : error
+            })
+        }
+    },
+    getAllNodeCount: async (req,res) => {
+        try {
+            const scholarship_id = req.params.id
+            const scholarShipObject = await Scholarship.findById(scholarship_id);
+            let nodeCountList = []
+            for(let i = 0;i<11;i++) {
+                nodeCountList.push(scholarShipObject.graph[i])
+            }
+            return res.status(200).json({
+                messgae : "Node data fetched successfully",
+                data : nodeCountList
             })
 
         } catch (error) {
@@ -123,15 +126,6 @@ module.exports = {
             const Obj = await Scholarship.findById(scholarship_id)
             const userIdList = Obj.graph[node]
             console.log(userIdList)
-            let userInfoList = [];
-            // for(let i=0;i<userIdList.length;i++) {
-            //     const UserObject = await User.findById(userIdList[i]);
-            //     userInfoList.push({
-            //         fname:UserObject.fname,
-            //         lname:UserObject.lname,
-            //         email:UserObject.email
-            //     })
-            // }
             const userList = await User.find({
                 "_id": { $in: userIdList}
             }).select(["fname","lname","email"])
