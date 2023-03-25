@@ -1,20 +1,10 @@
 const Event = require('../models/Event')
 const verifyToken = require('./helpers/JWT_Authentication')
+const {eventTypeEnumerator,convert} = require('./helpers/convertEnum');
+const Scholarship = require('../models/Scholarship');
+const Event = require('../models/Event')
 module.exports = {
-    addEvent : async (req,res) =>{
-        try {
-            
-            const addedEvent = new Event(req.body);
-            const result = await addedEvent.save() 
-
-            return res.status(200).json({
-                message : "Event tracked successfully"
-            })
-
-        } catch (error) {
-            res.send(500).json({
-                message : "Internal error occurred"
-            })
-        }
+    updateEvent : async (req,res) =>{
+       
     }
 }
