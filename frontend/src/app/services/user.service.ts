@@ -37,7 +37,7 @@ export class UserService {
         ).subscribe(
             (temp:any)=>{
                 // console.log(temp);
-                let newUser=new User(temp.data.fname,temp.data.lname,temp.data.email,temp.date._id);
+                let newUser=new User(temp.data.fname,temp.data.lname,temp.data.email,temp.data._id);
                 this.user.next(newUser);
             }
         )

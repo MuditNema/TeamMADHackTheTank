@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
 import { ScholarshipDetailComponent } from './scholarship-detail/scholarship-detail.component';
 import { EventDirective } from './directives/event.directive';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EventDirective } from './directives/event.directive';
     HeaderComponent,
     ScholarshipListComponent,
     ScholarshipDetailComponent,
-    EventDirective
+    EventDirective,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
