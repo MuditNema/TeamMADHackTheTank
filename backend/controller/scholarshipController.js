@@ -11,16 +11,17 @@ function makeArray(d1) {
 }
 
 
-const alreadyExists = async (user_id,scholarship_id,starting_node) => {
-    const scholarshipDetails = await Scholarship.findById(scholarship_id)
-    const nodeDetails = scholarshipDetails.graph[starting_node]; 
-    if(nodeDetails.IndexOf(user_id)!=-1) return true;
+const alreadyExists =  (user_id,myScholarShip,starting_node) => {
+    // const scholarshipDetails = await Scholarship.findById(scholarship_id)
+    const nodeDetails = myScholarShip.graph[starting_node]; 
+    if(nodeDetails.indexOf(user_id)!=-1) return true;
     let ans = false;
     for(let i=0;i<graph_array[starting_node].length;i++) {
-        if(graph[starting_node][i]==1 && !visited[i]){
-            ans = ans || alreadyExists(user_id,scholarship_id,i)
+        if(graph_array[starting_node][i]==1){
+            ans = ans ||  alreadyExists(user_id,myScholarShip,i)
         }
     }
+    console.log(starting_node, ans)
     return ans;
 }
 
@@ -55,7 +56,7 @@ module.exports = {
             const myScholarShip = await Scholarship.findById(scholarship_id);
             //remove node from everywhere else and update it to the apply node in the graph
             if(next_node=="applied") {
-                for(let i=0;i<10;i++) {
+                for(let i=0;i<=10;i++) {
                     const arr = myScholarShip.graph[i].filter((e)=>{
                         return e != uid
                     })
@@ -64,30 +65,46 @@ module.exports = {
             }
 
             if(current_node == "-1") {
-                await pushToArray(myScholarShip,next_node,uid,scholarship_id)
-            }
-            else if(current_node == "view"){
-                if(!alreadyExists(uid,convert(next_node))){
-                    //do add and update
-                    const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
-                        return e != uid
-                    })
-                    myScholarShip.graph[convert(current_node)] = arr
+                //check for multiple pushes
+                if(myScholarShip.graph[0].indexOf(uid)==-1){
+                    //pushing to array
                     await pushToArray(myScholarShip,next_node,uid,scholarship_id)
                 }
-                //redirect to the url
             }
             else {
-                if(!alreadyExists(uid,convert(current_node))) {
+                // console.log(myScholarShip)
+                if(!alreadyExists(uid,myScholarShip,convert(next_node))){
                     //do add and update
+                    console.log('Reached')
                     const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
                         return e != uid
                     })
                     myScholarShip.graph[convert(current_node)] = arr
                     await pushToArray(myScholarShip,next_node,uid,scholarship_id)
                 }
+                else {
+                    const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
+                        return e != uid
+                    })
+                }
                 //redirect to the url
             }
+            // else {
+            //     if(!alreadyExists(uid,myScholarShip,convert(current_node))) {
+            //         //do add and update
+            //         const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
+            //             return e != uid
+            //         })
+            //         myScholarShip.graph[convert(current_node)] = arr
+            //         await pushToArray(myScholarShip,next_node,uid,scholarship_id)
+            //     }
+            //     else {
+            //         const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
+            //             return e != uid
+            //         })
+            //     }
+            //     //redirect to the url
+            // }
             return res.status(200).json({
                 message : "Event updated successfully"
             })
@@ -105,20 +122,23 @@ module.exports = {
 
             const Obj = await Scholarship.findById(scholarship_id)
             const userIdList = Obj.graph[node]
-
+            console.log(userIdList)
             let userInfoList = [];
-            for(let i=0;i<userIdList.length;i++) {
-                const UserObject = User.findById(userIdList[i]);
-                userInfoList.push({
-                    fname:UserObject.fname,
-                    lname:UserObject.lname,
-                    email:UserObject.email
-                })
-            }
-
+            // for(let i=0;i<userIdList.length;i++) {
+            //     const UserObject = await User.findById(userIdList[i]);
+            //     userInfoList.push({
+            //         fname:UserObject.fname,
+            //         lname:UserObject.lname,
+            //         email:UserObject.email
+            //     })
+            // }
+            const userList = await User.find({
+                "_id": { $in: userIdList}
+            }).select(["fname","lname","email"])
+            console.log(userList)
             return res.status(200).json({
                 messgae : "Data fetched successfully",
-                data : userInfoList
+                data : userList
             })
 
         } catch (error) {
