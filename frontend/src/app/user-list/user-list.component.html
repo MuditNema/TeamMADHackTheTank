@@ -1,1 +1,30 @@
-<p>user-list works!</p>
+
+<div class="table-container">
+    <div class="table-head">
+        <div class="table-head-name">User Table</div>
+    </div>
+    <div class="table-main-block" #tableMainBlock>
+        <div class="table-row table-header" 
+        [style.width]="tableMainBlock.scrollWidth + 'px'">
+            <div class="user-sr-no">UID</div>
+            <div class="user-first-name">First Name</div>
+            <div class="user-last-name">Last Name</div>
+            <div class="user-email-id">Email Id</div>
+            <div class="user-action">Action</div>
+        </div>
+        <div class="table-row" 
+        data-user-item
+        [style.width]="tableMainBlock.scrollWidth + 'px'"
+        *ngFor="let user of userList">
+            <div class="user-sr-no">{{ user._id }}</div>
+            <div class="user-first-name">{{ user.firstName }}</div>
+            <div class="user-last-name">{{ user.LastName }}</div>
+            <div class="user-email-id">{{ user.email }}</div>
+            <div class="user-action action-flex">
+                <span>Push</span>
+                <span>Email</span>
+                <span>Whatsapp</span>
+            </div>
+        </div>
+    </div>
+</div>

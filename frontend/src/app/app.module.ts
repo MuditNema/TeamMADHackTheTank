@@ -13,6 +13,7 @@ import { ScholarshipListComponent } from './scholarship-list/scholarship-list.co
 import { ScholarshipDetailComponent } from './scholarship-detail/scholarship-detail.component';
 import { EventDirective } from './directives/event.directive';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserJourneyGraphComponent } from './user-journey-graph/user-journey-graph.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UserListComponent } from './user-list/user-list.component';
     ScholarshipListComponent,
     ScholarshipDetailComponent,
     EventDirective,
-    UserListComponent
+    UserListComponent,
+    UserJourneyGraphComponent
   ],
   imports: [
     BrowserModule,

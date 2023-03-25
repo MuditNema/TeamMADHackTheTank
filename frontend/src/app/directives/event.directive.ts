@@ -22,6 +22,7 @@ export class EventDirective implements OnInit, OnChanges{
   ngOnInit(): void {
     this.userService.user.subscribe(
       (user:User | null) => {
+        console.log(user);
         this.uid = user?._id || '';
       }
     )

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { User } from '../models/user.model';
 export class UserService {
 
   constructor(private http:HttpClient){}
-    user=new Subject<User | null>;
+    user=new BehaviorSubject<User | null>(null);
     login(email:string,password:string){
         this.http.post(
             'http://localhost:3000/user/login',
@@ -20,6 +20,7 @@ export class UserService {
         ).subscribe(
             (temp:any)=>{
                 console.log(temp);
+                localStorage.setItem('token', temp.token);
                 let newUser=new User(temp.user.fname,temp.user.lname,temp.user.email,temp.user._id);
                 this.user.next(newUser);
             }
