@@ -1,3 +1,4 @@
+import { UserJourneyGraphComponent } from './user-journey-graph/user-journey-graph.component';
 import { ScholarshipDetailComponent } from './scholarship-detail/scholarship-detail.component';
 import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
 import { SignupComponent } from './signup/signup.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'scholarship', component: ScholarshipListComponent },
   { path: 'scholarship/:id', component: ScholarshipDetailComponent },
-  { path: 'user-list', component: UserListComponent }
+  { path: 'user-list', component: UserListComponent },
+  { path: 'dashboard', component: UserJourneyGraphComponent }
 ];
 
 @NgModule({

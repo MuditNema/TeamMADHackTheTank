@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class UserJourneyGraphComponent {
 
+  userList: any = null;
+
+  constructor(private http: HttpClient) { }
+
+  fetchTable(node: string) {
+    console.log(`${node} requested`);
+  }
 }
