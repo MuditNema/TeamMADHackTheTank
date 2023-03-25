@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { User } from '../models/user.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-list',
@@ -7,12 +6,13 @@ import { User } from '../models/user.model';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent {
-  @Input() userList: User[] = [
-    { _id: '123456', firstName: 'Amit', LastName: 'Parekh', email: 'parekhamit04@gmail.com' },
-    { _id: '123456', firstName: 'Amit', LastName: 'Parekh', email: 'parekhamit04@gmail.com' },
-    { _id: '123456', firstName: 'Amit', LastName: 'Parekh', email: 'parekhamit04@gmail.com' },
-    { _id: '123456', firstName: 'Amit', LastName: 'Parekh', email: 'parekhamit04@gmail.com' },
-  ];
+  @Input() userList: any[];
+
+  @Output() close: EventEmitter<void> = new EventEmitter();
 
   constructor() { }
+
+  closeTable() {
+    this.close.emit()
+  }
 }

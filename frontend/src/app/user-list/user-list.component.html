@@ -1,4 +1,4 @@
-
+<div class="popup-bg" (click)="closeTable()"></div>
 <div class="table-container">
     <div class="table-head">
         <div class="table-head-name">User Table</div>
@@ -17,8 +17,8 @@
         [style.width]="tableMainBlock.scrollWidth + 'px'"
         *ngFor="let user of userList">
             <div class="user-sr-no">{{ user._id }}</div>
-            <div class="user-first-name">{{ user.firstName }}</div>
-            <div class="user-last-name">{{ user.LastName }}</div>
+            <div class="user-first-name">{{ user.fname }}</div>
+            <div class="user-last-name">{{ user.lname }}</div>
             <div class="user-email-id">{{ user.email }}</div>
             <div class="user-action action-flex">
                 <span>Push</span>
