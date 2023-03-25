@@ -1,0 +1,19 @@
+
+<div class="section">
+    <div class="outer-1360 py-60">
+        <div class="auth-container">
+            <div class="container-title">Login</div>
+            <div class="w-form">
+                <form id="email-form" name="email-form" data-name="Email Form" aria-label="Email Form" (ngSubmit)="signIn(f)" #f="ngForm">
+                    <input ngModel type="email" class="input-field w-input" maxlength="256" name="email" data-name="Email" placeholder="Email" id="Email">
+                    <input ngModel type="password" class="input-field w-input" maxlength="256" name="password" data-name="password" placeholder="Password" id="password" required="">
+                    <input appEvent curr="login" next="home" id="1" type="submit" value="Login" data-wait="Please wait..." class="login-btn w-button">
+                </form>
+            </div>
+            <div class="or">
+                <div class="text-block">or</div>
+            </div>
+            <div class="sign-in-google">Don't have an account?<a routerLink="/signup">Sign up</a></div>
+        </div>
+    </div>
+</div>
