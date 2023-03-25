@@ -1,0 +1,25 @@
+
+<div class="section">
+    <div class="outer-1360 py-60">
+        <div class="auth-container">
+            <div class="container-title">Sign up</div>
+            <div class="w-form">
+                <form id="email-form" name="email-form" data-name="Email Form" aria-label="Email Form" (ngSubmit)="signUp(f)" #f="ngForm">
+                    <div class="full-name-flex">
+                        <input ngModel type="text" class="input-field w-input" maxlength="256" name="First-Name" data-name="First Name" name="firstName" placeholder="First Name" id="First-Name" required="">
+                        <input ngModel type="text" class="input-field w-input" maxlength="256" name="Last-Name" data-name="Last Name" name="lastName" placeholder="Last Name" id="Last-Name" required="">
+                    </div>
+                    <input ngModel type="email" class="input-field w-input" maxlength="256" name="Email" data-name="Email" name="email" placeholder="Email" id="Email-3">
+                    <input ngModel type="password" class="input-field w-input" maxlength="256" name="password" data-name="Password 2" placeholder="Password" id="password-2" required="">
+                    <input type="submit" value="Sign up" data-wait="Please wait..." class="login-btn w-button">
+                </form>
+            </div>
+            <div class="or">
+                <div class="text-block">or</div>
+            </div>
+            <div class="sign-in-google">
+                Already having account? <a routerLink="/login">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
