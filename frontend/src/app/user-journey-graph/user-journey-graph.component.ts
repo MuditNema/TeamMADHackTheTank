@@ -10,12 +10,16 @@ import { User } from '../models/user.model';
 export class UserJourneyGraphComponent {
 
   toggleUserList: boolean = false;
+  isLoading: boolean = false;
   userList: any[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+
+  }
 
   fetchTable(node: string) {
     console.log(`${node} requested`);
+    this.isLoading = true;
     this.http.post('http://localhost:3000/scholar/getNodeDetails', {
       id: '641ef04ce515b1ea2f47a2a4',
       node
@@ -23,6 +27,7 @@ export class UserJourneyGraphComponent {
       this.userList = userList.data;
       console.log(userList)
       this.toggleUserList = true;
+      this.isLoading = false;
     })
   }
 }

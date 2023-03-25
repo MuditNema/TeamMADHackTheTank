@@ -6,7 +6,6 @@
     <div class="table-main-block" #tableMainBlock>
         <div class="table-row table-header" 
         [style.width]="tableMainBlock.scrollWidth + 'px'">
-            <div class="user-sr-no">UID</div>
             <div class="user-first-name">First Name</div>
             <div class="user-last-name">Last Name</div>
             <div class="user-email-id">Email Id</div>
@@ -16,7 +15,6 @@
         data-user-item
         [style.width]="tableMainBlock.scrollWidth + 'px'"
         *ngFor="let user of userList">
-            <div class="user-sr-no">{{ user._id }}</div>
             <div class="user-first-name">{{ user.fname }}</div>
             <div class="user-last-name">{{ user.lname }}</div>
             <div class="user-email-id">{{ user.email }}</div>

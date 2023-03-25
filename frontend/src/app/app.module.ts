@@ -24,6 +24,7 @@ import { EmailComponent } from './scholarship-detail/applied/doc-upload/email/em
 import { ReUploadComponent } from './scholarship-detail/applied/doc-upload/re-upload/re-upload.component';
 import { EnquiryComponent } from './scholarship-detail/tnc/enquiry/enquiry.component';
 import { AppliedComponent } from './scholarship-detail/applied/applied.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AppliedComponent } from './scholarship-detail/applied/applied.component
     EmailComponent,
     ReUploadComponent,
     EnquiryComponent,
-    AppliedComponent
+    AppliedComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
