@@ -20,7 +20,7 @@ export class UserService {
         ).subscribe(
             (temp:any)=>{
                 console.log(temp);
-                localStorage.setItem('token', temp.token);
+                localStorage.setItem('token', temp.user._id);
                 let newUser=new User(temp.user.fname,temp.user.lname,temp.user.email,temp.user._id);
                 this.user.next(newUser);
             }
