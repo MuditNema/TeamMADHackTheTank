@@ -67,6 +67,6 @@
     </g>
     </svg>
 
-<div class="user-popup" *ngIf="userList">
-    <app-user-list [userList]="userList"></app-user-list>
+<div class="user-popup" *ngIf="toggleUserList">
+    <app-user-list [userList]="userList" (close)="toggleUserList = false"></app-user-list>
 </div>

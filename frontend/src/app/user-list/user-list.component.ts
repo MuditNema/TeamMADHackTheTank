@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../models/user.model';
 
 @Component({
@@ -14,5 +14,11 @@ export class UserListComponent {
     { _id: '123456', firstName: 'Amit', LastName: 'Parekh', email: 'parekhamit04@gmail.com' },
   ];
 
+  @Output() close: EventEmitter<void> = new EventEmitter();
+
   constructor() { }
+
+  closeTable() {
+    this.close.emit()
+  }
 }
