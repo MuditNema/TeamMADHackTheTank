@@ -2,7 +2,7 @@ const User = require('../models/User')
 const {userValidateSchema} = require('./helpers/validationSchema') 
 const {signAccessToken} =  require('./helpers/JWT_Authentication')
 const bcrypt = require('bcrypt')
-const sendMail = require('./helpers/sendMail')
+// const sendMail = require('./helpers/sendMail')
 module.exports = {
     login : async (req,res) => {
         try {
@@ -59,7 +59,7 @@ module.exports = {
             //Sending OK status to the client and creating the accessToken for the client side
 
             const accessToken = await signAccessToken(result._id) 
-            sendMail(newUser,accessToken)
+            // sendMail(newUser,accessToken)
             return res.status(200).json({
                 data : result,
                 token : accessToken,

@@ -1,5 +1,6 @@
 const mongoose  = require('mongoose')
 const MONGO_URL = "mongodb+srv://muditnema14:Atsumumiya123@cluster-htt.lubhq75.mongodb.net/htt";
+// const MONGO_URL = "mongodb://localhost:27017"
 
 const connectToMongo = async () =>{
     mongoose.connect(MONGO_URL)
