@@ -1,11 +1,12 @@
-<ul>
-    <li><button appEvent curr="{{curr}}" next="terms" [id]="id" (mousedown)="setCurr('terms')">terms</button></li>
-    <li><button appEvent curr="{{curr}}" next="bookmark" [id]="id" (mousedown)="setCurr('bookmark')">bookmark</button></li>
-    <li><button appEvent curr="{{curr}}" next="peer-review" [id]="id" (mousedown)="setCurr('peer-review')">peer review</button></li>
-    <li><button appEvent curr="{{curr}}" next="download-rulebook" [id]="id" (mousedown)="setCurr('download-rulebook')">download rulebook</button></li>
-    <li><button appEvent curr="{{curr}}" next="applied" [id]="id" (mousedown)="setCurr('applied')">applied</button></li>
-    <li><button appEvent curr="{{curr}}" next="visited-sponsor" [id]="id" (mousedown)="setCurr('visited-sponsor')">visited sponsor</button></li>
-    <li><button appEvent curr="{{curr}}" next="follow-up-enquiry" [id]="id" (mousedown)="setCurr('follow-up-enquiry')">follow-up enquiry</button></li>
-    <li><button appEvent curr="{{curr}}" next="follow-up-email" [id]="id" (mousedown)="setCurr('follow-up-email')">follow-up email</button></li>
-    <li><button appEvent curr="{{curr}}" next="re-upload-documents" [id]="id" (mousedown)="setCurr('re-upload-documents')">re-upload documents</button></li>
-</ul>
+<!-- <input type="text" [(NgModel)]="curr">
+{{curr}}
+<input type="text" [(NgModel)]="next">
+<button appEvent [curr]="curr" [next]="next" [id]="id">Send</button> -->
+<button routerLink="/tnc" appEvent curr="view" next="TnC">Terms and Condition</button>
+<button  appEvent curr="view" next="bookmark">Bookmark</button>
+<button routerLink="/peerReview" appEvent curr="view" next="peerReview">Peer Review</button>
+<!-- <form id="email-form" name="email-form" data-name="Email Form" aria-label="Email Form" #f="ngForm">
+    <input ngModel type="text" class="input-field w-input" maxlength="256" name="curr" data-name="Email" placeholder="Curr" id="Email">
+    <input ngModel type="text" class="input-field w-input" maxlength="256" name="next" data-name="password" placeholder="Next" >
+    <input appEvent curr="{{f.value.curr}}" next="{{f.value.next}}" id="1" type="submit" value="Login" data-wait="Please wait..." class="login-btn w-button">
+</form> -->

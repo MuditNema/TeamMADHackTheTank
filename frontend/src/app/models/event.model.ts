@@ -1,8 +1,8 @@
 export class Event {
     constructor(
-        private curr: string,
-        private next: string,
-        private id: string,
-        private uid: string
+        public curr: string,
+        public next: string,
+        public id: string,
+        public uid: string
     ) { }
 } 
