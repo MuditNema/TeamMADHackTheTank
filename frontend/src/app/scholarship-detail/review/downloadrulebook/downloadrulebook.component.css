@@ -1,0 +1,25 @@
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #009688;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #00796b;
+}
+
+.btn-group {
+    /* margin: auto; */
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}

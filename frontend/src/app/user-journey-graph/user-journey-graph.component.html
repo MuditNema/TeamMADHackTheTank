@@ -1,6 +1,11 @@
 
-
 <div class="graph-block">
+    <div class="scholarships">
+        <div routerLink="/dashboard/641ef04ce515b1ea2f47a2a4">HDFC Educational Crisis Scholarship Scheme</div>
+        <div routerLink="/dashboard/641ef07fe515b1ea2f47a2a6">Foundation for Academic Excellence and Access (FAEA)</div>
+        <div routerLink="/dashboard/641ef098e515b1ea2f47a2a8">Indian Oil Academic Scholarships</div>
+        <div routerLink="/dashboard/641ef098e515b1ea2f47a2a8">Aditya Birla Scholarship</div>
+    </div>
     <svg class="graph-svg" width="613" height="370" viewBox="0 0 613 370" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="user-journey-graph">
         <path id="Arrow 1" d="M48.48 206.14L133 123M48.48 206.14L128 206.14M48.48 206.14L128 299.5" stroke="black" stroke-width="2"/>
@@ -25,47 +30,47 @@
         <text id="Peer review" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="117" y="354.864">Peer review</tspan></text>
         <g id="view-group" (click)="fetchTable('view')">
         <circle id="Ellipse 1" cx="25" cy="205" r="25" fill="#00D1FF"/>
-        <text id="view" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="15" y="209.864">100</tspan></text>
+        <text id="view" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="15" y="209.864">{{userListCount[0]}}</tspan></text>
         </g>
         <g id="bookmark-group" (click)="fetchTable('bookmark')">
         <circle id="Ellipse 3" cx="153" cy="205" r="25" fill="#FF00A8"/>
-        <text id="bookmark" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="143" y="209.864">100</tspan></text>
+        <text id="bookmark" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="143" y="209.864">{{userListCount[2]}}</tspan></text>
         </g>
         <g id="tnc-group" (click)="fetchTable('TnC')">
         <circle id="Ellipse 2" cx="153" cy="106" r="25" fill="#FF7D04"/>
-        <text id="terms-and-condition-enquiry" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="143" y="110.864">100</tspan></text>
+        <text id="terms-and-condition-enquiry" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="143" y="110.864">{{userListCount[1]}}</tspan></text>
         </g>
         <g id="visit-sponsor-group" (click)="fetchTable('visitSponsor')">
         <circle id="Ellipse 11" cx="568" cy="25" r="25" fill="#FF7D04"/>
-        <text id="visit-sponsor-website" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="558" y="29.8636">100</tspan></text>
+        <text id="visit-sponsor-website" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="558" y="29.8636">{{userListCount[7]}}</tspan></text>
         </g>
         <g id="follow-enquiry-group" (click)="fetchTable('enquiry')">
         <circle id="Ellipse 10" cx="568" cy="115" r="25" fill="#FF00A8"/>
-        <text id="follow-up-enquiry" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="558" y="119.864">100</tspan></text>
+        <text id="follow-up-enquiry" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="558" y="119.864">{{userListCount[8]}}</tspan></text>
         </g>
         <g id="follow-email-group" (click)="fetchTable('email')">
         <circle id="Ellipse 8" cx="568" cy="205" r="25" fill="#FF00A8"/>
-        <text id="follow-up-email" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="558" y="209.864">100</tspan></text>
+        <text id="follow-up-email" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="558" y="209.864">{{userListCount[9]}}</tspan></text>
         </g>
         <g id="reupload-group" (click)="fetchTable('reUpload')">
         <circle id="Ellipse 9" cx="568" cy="312" r="25" fill="#FF00A8"/>
-        <text id="reupload-documents" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="558" y="316.864">100</tspan></text>
+        <text id="reupload-documents" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="558" y="316.864">{{userListCount[10]}}</tspan></text>
         </g>
         <g id="document-upload-group" (click)="fetchTable('docUpload')">
         <circle id="Ellipse 7" cx="482" cy="255" r="25" fill="#FF7D04"/>
-        <text id="documents-upload" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="472" y="259.864">100</tspan></text>
+        <text id="documents-upload" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="472" y="259.864">{{userListCount[6]}}</tspan></text>
         </g>
         <g id="applied-group" (click)="fetchTable('applied')">
         <circle id="Ellipse 6" cx="353" cy="205" r="25" fill="#1FD210"/>
-        <text id="applied" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="343" y="209.864">100</tspan></text>
+        <text id="applied" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="343" y="209.864">{{userListCount[5]}}</tspan></text>
         </g>
         <g id="download-rulebook-group" (click)="fetchTable('downloadRulebook')">
         <circle id="Ellipse 5" cx="262" cy="287" r="25" fill="#FF7D04"/>
-        <text id="download-rulebook" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="251" y="292.864">100</tspan></text>
+        <text id="download-rulebook" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="251" y="292.864">{{userListCount[4]}}</tspan></text>
         </g>
         <g id="pr-group" (click)="fetchTable('peerReview')">
         <circle id="Ellipse 4" cx="153" cy="312" r="25" fill="#00D1FF"/>
-        <text id="peer-review" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="143" y="316.864">100</tspan></text>
+        <text id="peer-review" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" letter-spacing="0em"><tspan x="143" y="316.864">{{userListCount[3]}}</tspan></text>
         </g>
         </g>
         </svg>

@@ -5,5 +5,5 @@ const {addScholarShip,updateScholarShip,getNodeDetails, getAllNodeCount} = requi
 router.post('/addScholarShip',addScholarShip)
 router.put('/updateScholarShip',updateScholarShip)
 router.post('/getNodeDetails',getNodeDetails)
-router.get('/getAllNodeCount',getAllNodeCount)
+router.get('/getAllNodeCount/:id',getAllNodeCount)
 module.exports = router

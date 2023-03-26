@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'scholarship', component: ScholarshipListComponent },
   { path: 'scholarship/:id', component: ScholarshipDetailComponent },
   { path: 'user-list', component: UserListComponent },
-  { path: 'dashboard', component: UserJourneyGraphComponent },
+  { path: 'dashboard/:id', component: UserJourneyGraphComponent },
   {path:'scholarship/:id/tnc',component:TncComponent},
   {path:'scholarship/:id/peerReview',component:ReviewComponent},
   {path:'scholarship/:id/downloadRulebook',component:DownloadrulebookComponent },

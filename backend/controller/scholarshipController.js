@@ -105,7 +105,7 @@ module.exports = {
             const scholarShipObject = await Scholarship.findById(scholarship_id);
             let nodeCountList = []
             for(let i = 0;i<11;i++) {
-                nodeCountList.push(scholarShipObject.graph[i])
+                nodeCountList.push(scholarShipObject.graph[i].length)
             }
             return res.status(200).json({
                 messgae : "Node data fetched successfully",

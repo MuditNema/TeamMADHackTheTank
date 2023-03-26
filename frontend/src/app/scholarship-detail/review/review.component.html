@@ -1,1 +1,21 @@
-<button routerLink="../downloadRulebook" appEvent curr="peerReview" next="downloadRulebook">Download Rulebook</button>
+<!-- <button routerLink="../downloadRulebook" appEvent curr="peerReview" next="downloadRulebook" [id]="id">Download Rulebook</button> -->
+
+<div class="container">
+    <h1>Peer Review</h1>
+    <p>Thank you for agreeing to review your peer's work. Please provide your feedback in the form below:</p>
+    <form >
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="reviewer-name">Reviewer's Name:</label>
+        <input type="text" id="reviewer-name" name="reviewer-name" required>
+        <label for="review">Feedback:</label>
+        <textarea id="review" name="review" rows="5" required></textarea>
+        <button type="submit"> Submit </button>
+    </form>
+</div>
+<div class="btn-group">
+    <button class="btn" routerLink="../downloadRulebook" appEvent curr="peerReview" next="downloadRulebook" [id]="id">Download RuleBook</button>
+    <!-- <button class="btn" routerLink="../enquiry" appEvent curr="Tnc" next="enquiry">Enquiry</button> -->
+</div>

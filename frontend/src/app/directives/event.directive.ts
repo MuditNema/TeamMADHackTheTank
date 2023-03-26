@@ -15,6 +15,7 @@ export class EventDirective implements OnInit{
   uid:string = '';
   newEvent: Event; 
   @HostListener('click') click() {
+    console.log('click fired')
     console.log(this.newEvent);
     this.uid=localStorage.getItem('token');
     console.log(this.uid);
