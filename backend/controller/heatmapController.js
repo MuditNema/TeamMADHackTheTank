@@ -34,12 +34,12 @@ module.exports = {
                 id:scholarship_id,
             })
             const result = await heatMap.save()
-            return res.send(200).json({
+            return res.json({
                 message : "Heatmap saved successfully",
                 data : result
             })
         } catch (error) {
-            return res.send(500).json({
+            return res.json({
                 message : "Internal error" + error
             })
         }

@@ -50,7 +50,7 @@ export class ScholarshipDetailComponent implements OnInit,OnDestroy {
         id:this.id,
         array:this.heatMap
       }
-    )
+    ).subscribe();
     this.end=Date.now();
     console.log(this.end-this.start);
     this.http.post(

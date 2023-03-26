@@ -1,10 +1,10 @@
 
 <div class="graph-block">
     <div class="scholarships">
-        <div routerLink="/dashboard/641ef04ce515b1ea2f47a2a4">SVNIT Scholarship</div>
-        <div routerLink="/dashboard/641ef07fe515b1ea2f47a2a6">Foundation for Academic Excellence and Access (FAEA)</div>
-        <div routerLink="/dashboard/641ef098e515b1ea2f47a2a8">Indian Oil Academic Scholarships</div>
-        <div routerLink="/dashboard/641ef098e515b1ea2f47a2a8">Aditya Birla Scholarship</div>
+        <div *ngFor="let scholItem of arrayId" routerLink="/dashboard/{{scholItem._id}}">{{scholItem.name}}</div>
+        <!-- <div routerLink="/dashboard/641fc66bed2c7f9f71872ca8">Foundation for Academic Excellence and Access (FAEA)</div>
+        <div routerLink="/dashboard/641fc67ced2c7f9f71872caa">Indian Oil Academic Scholarships</div>
+        <div routerLink="/dashboard/641fc687ed2c7f9f71872cac">Aditya Birla Scholarship</div> -->
     </div>
     <svg class="graph-svg" width="613" height="370" viewBox="0 0 613 370" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g id="user-journey-graph">

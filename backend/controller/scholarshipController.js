@@ -100,12 +100,12 @@ module.exports = {
                 }
                 //redirect to the url
             }
-            return res.status(200).json({
+            return res.json({
                 message : "Event updated successfully"
             })
 
         } catch (error) {
-            return res.status(500).json({
+            return res.json({
                 message : error
             })
         }

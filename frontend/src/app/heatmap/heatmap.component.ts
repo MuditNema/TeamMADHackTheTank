@@ -93,6 +93,7 @@ export class HeatmapComponent implements OnInit{
     ).subscribe(
       (data:any)=>{
         this.heatmap=data.data.heatmap;
+        this.drawHeatMap()
       }
     )
   }
