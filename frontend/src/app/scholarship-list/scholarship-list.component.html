@@ -1,24 +1,23 @@
 <div class='container'>
-    <div class='center list flex-column'>
+    <div class='center list flex-column' *ngFor="let i of array">
       <div class='card flex-row open'>
         <img src='https://img.freepik.com/free-photo/3d-render-graduation-cap-with-diploma-certificate_107791-16842.jpg?w=900&t=st=1679775892~exp=1679776492~hmac=f7fa61bc0560f5654071bfbbb3bd01e5f1e62c8ec6d1760cd354ef5b4b2a7834' class='book'>
         <div class='flex-column info'>
-          <div class='title'>HDFC Educational Crisis Scholarship Scheme</div>
+          <div class='title'>{{i.name}}</div>
           <div class='hidden bottom summary'>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod ratione impedit temporibus maiores autem aperiam assumenda exercitationem, quisquam nobis esse.
           </div>
         </div>
         <div class='flex-column group'>
           <div class='members'>
-            <span class='current'>14</span> /
-            <span class='max'>30</span>
+            <span class='current'>{{i.amount}}</span>
           </div>
           <div class='hidden bottom'>
-            <button appEvent curr="-1" next="view" id="641ef04ce515b1ea2f47a2a4" class='simple' routerLink="/scholarship/641ef04ce515b1ea2f47a2a4">View</button>
+            <button appEvent curr="-1" next="view" id="{{i._id}}" class='simple' routerLink="/scholarship/{{i._id}}">View</button>
           </div>
         </div>
       </div>
-      <div class='card flex-row open'>
+      <!-- <div class='card flex-row open'>
         <img src='https://img.freepik.com/free-photo/3d-render-graduation-cap-with-diploma-certificate_107791-16842.jpg?w=900&t=st=1679775892~exp=1679776492~hmac=f7fa61bc0560f5654071bfbbb3bd01e5f1e62c8ec6d1760cd354ef5b4b2a7834' class='book'>
         <div class='flex-column info'>
           <div class='title'>Foundation for Academic Excellence and Access (FAEA)</div>
@@ -71,6 +70,6 @@
             <button appEvent curr="-1" next="view" id="641fb1d3f0ed13404fbeca66" class='simple' routerLink="/scholarship/641fb1d3f0ed13404fbeca66">View</button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>

@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 
 @Component({
@@ -8,11 +8,12 @@ import { User } from '../models/user.model';
   templateUrl: './user-journey-graph.component.html',
   styleUrls: ['./user-journey-graph.component.css']
 })
-export class UserJourneyGraphComponent {
+export class UserJourneyGraphComponent implements OnInit{
 
   toggleUserList: boolean = false;
   isLoading: boolean = false;
   userList: any[];
+  arrayId:any[];
   userListCount: any[];
   time:string = 'dev';
   constructor(private http: HttpClient, private route: ActivatedRoute) { 
@@ -23,7 +24,16 @@ export class UserJourneyGraphComponent {
       })
     })
   }
-
+  ngOnInit(): void {
+    this.http.get(
+      'http://localhost:3000/scholar/getAllScholarshipID'
+    ).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.arrayId=data.data;
+      }
+    )
+  }
   fetchTable(node: string) {
     console.log(`${node} requested`);
     this.isLoading = true;
