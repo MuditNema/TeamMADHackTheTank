@@ -32,8 +32,7 @@ const alreadyExists =  (user_id,myScholarShip,starting_node) => {
 }
 
 const pushToArray = async (myScholarShip,next_node,uid,scholarship_id) => {
-    myScholarShip.graph[convert(next_node)].push(uid);
-    await Scholarship.findByIdAndUpdate(scholarship_id, myScholarShip)
+    
 }
 
 module.exports = {
@@ -79,7 +78,8 @@ module.exports = {
                 //check for multiple pushes
                 if(myScholarShip.graph[0].indexOf(uid)==-1){
                     //pushing to array
-                    await pushToArray(myScholarShip,next_node,uid,scholarship_id)
+                    myScholarShip.graph[convert(next_node)].push(uid);
+                    await Scholarship.findByIdAndUpdate(scholarship_id, myScholarShip)
                 }
             }
             else {
@@ -90,8 +90,9 @@ module.exports = {
                     const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
                         return e != uid
                     })
-                    myScholarShip.graph[convert(current_node)] = arr
-                    await pushToArray(myScholarShip,next_node,uid,scholarship_id)
+                        myScholarShip.graph[convert(current_node)] = arr
+                        myScholarShip.graph[convert(next_node)].push(uid);
+                    await Scholarship.findByIdAndUpdate(scholarship_id, myScholarShip)
                 }
                 else {
                     const arr = myScholarShip.graph[convert(current_node)].filter((e) => {
