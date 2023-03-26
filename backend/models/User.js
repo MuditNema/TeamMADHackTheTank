@@ -24,6 +24,10 @@ const UserSchema =  new mongoose.Schema({
         type : Boolean,
         default : false
     },
+    contactNo : {
+        type : String,
+        default : "9978900829"
+    }
 })
 //using "pre" middleware function to hash the password before adding the user to the database
 

@@ -14,7 +14,7 @@ export class UserJourneyGraphComponent {
   isLoading: boolean = false;
   userList: any[];
   userListCount: any[];
-
+  time:string = 'dev';
   constructor(private http: HttpClient, private route: ActivatedRoute) { 
     // const id = route.snapshot.paramMap.get('id');
     route.paramMap.subscribe((temp) => {
@@ -30,9 +30,11 @@ export class UserJourneyGraphComponent {
     this.http.post('http://localhost:3000/scholar/getNodeDetails', {
       id: this.route.snapshot.paramMap.get('id'),
       node
-    }).subscribe((userList: any) => {
-      this.userList = userList.data;
-      console.log(userList)
+    }).subscribe((x: any) => {
+      console.log(x)
+      this.userList = x.data.userDetails;
+      this.time=x.data.total_time;
+      console.log(this.time)
       this.toggleUserList = true;
       this.isLoading = false;
     })

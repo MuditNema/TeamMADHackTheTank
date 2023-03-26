@@ -10,17 +10,11 @@ function makeArray(d1) {
     return arr;
 }
 
-const msToTime =(ms) => {
-    var milliseconds = Math.floor((duration % 1000) / 100),
-    seconds = Math.floor((duration / 1000) % 60),
-    minutes = Math.floor((duration / (1000 * 60)) % 60),
-    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-
-  hours = (hours < 10) ? "0" + hours : hours;
-  minutes = (minutes < 10) ? "0" + minutes : minutes;
-  seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-  return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+const msToTime = (ms) => {
+    let sec = ms/1000
+    const min = Math.floor(sec/60)
+    sec = sec%60
+    return `${min} : ${sec}`
   }
 
 const alreadyExists =  (user_id,myScholarShip,starting_node) => {
@@ -46,7 +40,10 @@ module.exports = {
     addScholarShip : async (req,res) => {
         try {
             const arr = makeArray(11);
-            const time_arr = makeArray(11)
+            const time_arr = new Array(11)
+            for(let i=0;i<arr.length;i++) {
+                time_arr[i] = 0
+            }
             const adddedShcholarShip = new Scholarship(req.body);
             adddedShcholarShip.graph = arr;
             adddedShcholarShip.time = time_arr;
@@ -139,17 +136,20 @@ module.exports = {
             const node = convert(req.body.node)
 
             const Obj = await Scholarship.findById(scholarship_id)
+            console.log(Obj)
             const userIdList = Obj.graph[node]
             console.log(userIdList)
             const userList = await User.find({
                 "_id": { $in: userIdList}
             }).select(["fname","lname","email"])
-            console.log(userList)
+            // console.log(userList)
+            console.log(Obj.time[node])
+            
             return res.status(200).json({
-                messgae : "Data fetched successfully",
+                message : "Data fetched successfully",
                 data : {
                     userDetails : userList,
-                    avg_time : msToTime(Obj.time[node])
+                    total_time:(msToTime(Obj.time[node]))
                 }
             })
 
@@ -172,8 +172,22 @@ module.exports = {
             })
         }
     },
+    getAllScholarshipID : async (req,res) => {
+        try {
+            const allScholarships = await Scholarship.find().select("_id")
+            return res.status(200).json({
+                message : "Scholarships details fetched successfully",
+                data : allScholarships
+            })
+        } catch (error) {
+            return res.status(500).json({
+                message : "Error fetching scholarships details " + error
+            })
+        }
+    },
     setNodeSessionAverage: async (req,res) =>  {
         try {
+            console.log('Session Fired')
             const scholarship_id = req.body.id;
             const start_time = req.body.start;
             const end_time = req.body.end;
@@ -185,13 +199,13 @@ module.exports = {
             time_spent += myScholarShip.time[node]
             myScholarShip.time[node] = time_spent
             await Scholarship.findByIdAndUpdate(scholarship_id, myScholarShip)
-
-            return res.send(200),json({
-                message:`Time updated for ${req.body.node} successfully`
+            console.log("error 1")
+            return res.json({
+                message:`Time updated successfully`
             })
 
         } catch (error) {
-            res.send(500).json({
+            return res.json({
                 message : "Error setting node session average " + error
             })
         }

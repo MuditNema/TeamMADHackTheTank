@@ -275,3 +275,8 @@
 .delete {
     background-color: #b00020;
 }
+
+.table-right-head {
+    margin-right: 20px;
+    margin-top: 8px;
+}

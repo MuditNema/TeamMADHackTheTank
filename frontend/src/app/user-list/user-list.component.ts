@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class UserListComponent {
   @Input() userList: any[];
+  @Input() time: string;
 
   @Output() close: EventEmitter<void> = new EventEmitter();
 
@@ -15,4 +16,5 @@ export class UserListComponent {
   closeTable() {
     this.close.emit()
   }
+
 }
