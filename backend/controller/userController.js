@@ -140,7 +140,8 @@ module.exports = {
     },
     notifyWhatsapp: async (req,res) => {
         try {
-            sendWhatsapp()
+            const userId = await User.findById(req.body.uid).select("_id")
+            sendWhatsapp(userId)
             res.status(200).json({
                 message:"Sent successfully"
             })

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, HostListener, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,8 +7,10 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './scholarship-detail.component.html',
   styleUrls: ['./scholarship-detail.component.css']
 })
-export class ScholarshipDetailComponent implements OnDestroy {
 
+export class ScholarshipDetailComponent implements OnInit,OnDestroy {
+  start:number
+  end:number
   id: string = '';
   heatMap: number[] = []; 
   temp: any;
@@ -49,6 +51,19 @@ export class ScholarshipDetailComponent implements OnDestroy {
         array:this.heatMap
       }
     )
+    this.end=Date.now();
+    console.log(this.end-this.start);
+    this.http.post(
+      'http://localhost:3000/scholar/updateNode',
+      {
+        start:this.start,
+        end:this.end,
+        node:"view",
+        id:this.id
+      }
+    ).subscribe();
   }
-
+  ngOnInit(): void {
+    this.start=Date.now();
+  }
 }

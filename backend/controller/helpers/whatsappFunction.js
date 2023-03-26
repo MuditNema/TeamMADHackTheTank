@@ -16,7 +16,8 @@ var config = {
 };
 
 module.exports = {
-    sendWhatsapp: () => {
+    sendWhatsapp: (contactNo) => {
+      config.data.to = "+91"+contactNo
         axios(config)
         .then(function (response) {
           console.log(JSON.stringify(response.data));

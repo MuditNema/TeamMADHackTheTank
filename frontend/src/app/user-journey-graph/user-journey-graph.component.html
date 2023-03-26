@@ -1,7 +1,7 @@
 
 <div class="graph-block">
     <div class="scholarships">
-        <div routerLink="/dashboard/641ef04ce515b1ea2f47a2a4">HDFC Educational Crisis Scholarship Scheme</div>
+        <div routerLink="/dashboard/641ef04ce515b1ea2f47a2a4">SVNIT Scholarship</div>
         <div routerLink="/dashboard/641ef07fe515b1ea2f47a2a6">Foundation for Academic Excellence and Access (FAEA)</div>
         <div routerLink="/dashboard/641ef098e515b1ea2f47a2a8">Indian Oil Academic Scholarships</div>
         <div routerLink="/dashboard/641ef098e515b1ea2f47a2a8">Aditya Birla Scholarship</div>
@@ -78,7 +78,7 @@
 </div>
 
 <div class="user-popup" *ngIf="toggleUserList">
-    <app-user-list [userList]="userList" (close)="toggleUserList = false"></app-user-list>
+    <app-user-list [time]="time" [userList]="userList" (close)="toggleUserList = false"></app-user-list>
 </div>
 
 <app-loader *ngIf="isLoading"></app-loader>

@@ -9,6 +9,9 @@ const ScholarshipSchema = new mongoose.Schema({
     },
     graph : {
         type : Array,
+    },
+    time : {
+        type : Array,
     }
 })
 

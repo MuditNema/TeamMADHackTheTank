@@ -22,6 +22,8 @@ app.use((req, res, next) => {
 });
 app.use('/user',require('./routes/user'))
 app.use('/scholar',require('./routes/scholarship'))
+app.use('/heatmap',require('./routes/heatmap'))
+
 app.get("/", async (req, res) => {
     res.json("Reached to the root");
   });

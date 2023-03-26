@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class UserListComponent {
   @Input() userList: any[];
   id: string = '';
+  @Input() time: string;
 
   @Output() close: EventEmitter<void> = new EventEmitter();
 
