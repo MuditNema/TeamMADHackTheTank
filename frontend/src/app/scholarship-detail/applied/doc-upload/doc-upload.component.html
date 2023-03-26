@@ -1,2 +1,18 @@
-<button appEvent curr="docUpload" next="email">Follow Up Email</button>
-<button appEvent curr="docUpload" next="reUpload">Reupload Document</button>
+<!-- <button appEvent curr="docUpload" next="email" [id]="id">Follow Up Email</button>
+<button appEvent curr="docUpload" next="reUpload" [id]="id">Reupload Document</button> -->
+
+<div class="container">
+    <h1>Document Upload</h1>
+    <p>Please select a document to upload:</p>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <label for="file">Select file:</label>
+        <input type="file" id="file" name="file" required>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+        <button type="submit">Upload</button>
+    </form>
+</div>
+<div class="btn-group">
+    <button routerlink="../email" appEvent curr="docUpload" class="btn" next="email" [id]="id">Follow Up Email</button>
+    <button appEvent curr="docUpload" class="btn" next="reUpload" [id]="id">Reupload Document</button>
+</div>

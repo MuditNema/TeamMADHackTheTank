@@ -37,9 +37,9 @@
             <br><br>
         </li>
         <div class="btn-group">
-            <button class="btn" routerLink="tnc">Terms and Conditions</button>
-            <button appEvent curr="view" next="bookmark" class="btn">Bookmark</button>
-            <button class="btn" routerLink="peerReview">Peer Review</button>
+            <button appEvent curr="view" next="TnC" [id]="id" class="btn" routerLink="tnc">Terms and Conditions</button>
+            <button appEvent curr="view" next="bookmark" [id]="id" class="btn">Bookmark</button>
+            <button appEvent curr="view" next="peerReview" [id]="id" class="btn" routerLink="peerReview">Peer Review</button>
         </div>
       </ul>
     </div>
