@@ -10,6 +10,18 @@ function makeArray(d1) {
     return arr;
 }
 
+const msToTime =(ms) => {
+    var milliseconds = Math.floor((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+  }
 
 const alreadyExists =  (user_id,myScholarShip,starting_node) => {
     // const scholarshipDetails = await Scholarship.findById(scholarship_id)
@@ -34,8 +46,10 @@ module.exports = {
     addScholarShip : async (req,res) => {
         try {
             const arr = makeArray(11);
+            const time_arr = makeArray(11)
             const adddedShcholarShip = new Scholarship(req.body);
             adddedShcholarShip.graph = arr;
+            adddedShcholarShip.time = time_arr;
             const result = await adddedShcholarShip.save()
             return res.status(200).json({
                 message : "Successfully scholarship added"
@@ -105,8 +119,9 @@ module.exports = {
             const scholarShipObject = await Scholarship.findById(scholarship_id);
             let nodeCountList = []
             for(let i = 0;i<11;i++) {
-                nodeCountList.push(scholarShipObject.graph[i])
+                nodeCountList.push(scholarShipObject.graph[i].length)
             }
+            console.log(nodeCountList)
             return res.status(200).json({
                 messgae : "Node data fetched successfully",
                 data : nodeCountList
@@ -132,7 +147,10 @@ module.exports = {
             console.log(userList)
             return res.status(200).json({
                 messgae : "Data fetched successfully",
-                data : userList
+                data : {
+                    userDetails : userList,
+                    avg_time : msToTime(Obj.time[node])
+                }
             })
 
         } catch (error) {
@@ -151,6 +169,30 @@ module.exports = {
         } catch (error) {
             return res.status(500).json({
                 message : "Error fetching scholarships details " + error
+            })
+        }
+    },
+    setNodeSessionAverage: async (req,res) =>  {
+        try {
+            const scholarship_id = req.body.id;
+            const start_time = req.body.start;
+            const end_time = req.body.end;
+            const node = convert(req.body.node)
+
+            let time_spent = (end_time - start_time);
+            
+            const myScholarShip = await Scholarship.findById(scholarship_id)
+            time_spent += myScholarShip.time[node]
+            myScholarShip.time[node] = time_spent
+            await Scholarship.findByIdAndUpdate(scholarship_id, myScholarShip)
+
+            return res.send(200),json({
+                message:`Time updated for ${req.body.node} successfully`
+            })
+
+        } catch (error) {
+            res.send(500).json({
+                message : "Error setting node session average " + error
             })
         }
     }
