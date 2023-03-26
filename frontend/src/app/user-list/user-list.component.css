@@ -202,6 +202,15 @@
 .action-flex { 
     display: flex;
     gap: 20px;
+    align-items: center;
+}
+
+.action-flex span {
+    cursor: pointer;
+}
+
+.action-flex svg {
+    width: 16px;
 }
 
 .user-email-id,

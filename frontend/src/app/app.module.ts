@@ -25,6 +25,7 @@ import { ReUploadComponent } from './scholarship-detail/applied/doc-upload/re-up
 import { EnquiryComponent } from './scholarship-detail/tnc/enquiry/enquiry.component';
 import { AppliedComponent } from './scholarship-detail/applied/applied.component';
 import { LoaderComponent } from './loader/loader.component';
+import { HeatmapComponent } from './heatmap/heatmap.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LoaderComponent } from './loader/loader.component';
     ReUploadComponent,
     EnquiryComponent,
     AppliedComponent,
-    LoaderComponent
+    LoaderComponent,
+    HeatmapComponent
   ],
   imports: [
     BrowserModule,

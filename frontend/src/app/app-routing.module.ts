@@ -1,3 +1,4 @@
+import { HeatmapComponent } from './heatmap/heatmap.component';
 import { UserJourneyGraphComponent } from './user-journey-graph/user-journey-graph.component';
 import { ScholarshipDetailComponent } from './scholarship-detail/scholarship-detail.component';
 import { ScholarshipListComponent } from './scholarship-list/scholarship-list.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'scholarship/:id/email',component:EmailComponent},
   {path:'scholarship/:id/visitSponsor',component:VisitedSponserComponent},
   {path:'scholarship/:id/enquiry',component:EnquiryComponent},
-  {path:'scholarship/:id/applied',component:AppliedComponent}
+  {path:'scholarship/:id/applied',component:AppliedComponent},
+  { path: 'heatmap/:id/:uid', component: HeatmapComponent }
   
 ];
 
